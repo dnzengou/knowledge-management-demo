@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Knowledge Management Platform</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent black">
+    <meta name="author" author="@DesireYavro">
+    <meta name="description" content="Search tool on-the-go, lightweight, easy and of quick access. Whenever you want, wherever you want, in one click.">
+    <meta name="keywords" content="search engine, algolia, instantsearch, js, mobile and desktop app, iPhone, Android, blackberry, jQuerymobile, ai">
+    <meta name="robots" content="all">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="css/img/favicons/favicon-16x16.png" />
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- bootstrap & font awesome components -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- end bootstrap -->
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="http://nirda.gov.rw/wp-content/uploads/2018/07/cropped-NIRDA-logo-blu-32x32.png" sizes="32x32" />
+    <link rel="icon" href="http://nirda.gov.rw/wp-content/uploads/2018/07/cropped-NIRDA-logo-blu-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="http://nirda.gov.rw/wp-content/uploads/2018/07/cropped-NIRDA-logo-blu-180x180.png" />
+    <meta name="msapplication-TileImage" content="http://nirda.gov.rw/wp-content/uploads/2018/07/cropped-NIRDA-logo-blu-270x270.png" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/css/materialize.min.css">
+
+    <style>
+    /* FontAwesome for working BootSnippet :> */
+
+    @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    #team {
+        background: #eee !important;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #108d6f;
+        border-color: #108d6f;
+        box-shadow: none;
+        outline: none;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #007b5e;
+        border-color: #007b5e;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    section .section-title {
+        text-align: center;
+        color: #007b5e;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+    }
+
+    #team .card {
+        border: none;
+        background: #ffffff;
+    }
+
+    .image-flip:hover .backside,
+    .image-flip.hover .backside {
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+        border-radius: .25rem;
+    }
+
+    .image-flip:hover .frontside,
+    .image-flip.hover .frontside {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    .mainflip {
+        -webkit-transition: 1s;
+        -webkit-transform-style: preserve-3d;
+        -ms-transition: 1s;
+        -moz-transition: 1s;
+        -moz-transform: perspective(1000px);
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transition: 1s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+
+    .frontside {
+        position: relative;
+        -webkit-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        z-index: 2;
+        margin-bottom: 30px;
+    }
+
+    .backside {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: white;
+        -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
+        -o-transform: rotateY(-180deg);
+        -ms-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+        -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    }
+
+    .frontside,
+    .backside {
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: 1s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transition: 1s;
+        -moz-transform-style: preserve-3d;
+        -o-transition: 1s;
+        -o-transform-style: preserve-3d;
+        -ms-transition: 1s;
+        -ms-transform-style: preserve-3d;
+        transition: 1s;
+        transform-style: preserve-3d;
+    }
+
+    .frontside .card,
+    .backside .card {
+        min-height: 312px;
+    }
+
+    .backside .card a {
+        font-size: 18px;
+        color: #007b5e !important;
+    }
+
+    .frontside .card .card-title,
+    .backside .card .card-title {
+        color: #007b5e !important;
+    }
+
+    .frontside .card .card-body img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+    </style>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color:transparent;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">
+    <!-- Logo -->
+                                                <div id="logo" class="">
+                            <img src="css/img/favicons/NIRDA-logo-blu-32x32.png" sizes="32x32" /></a>
+                        </div>
+                        <!-- #logo END -->
+    </a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Main</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 main-container">
+
+            <div id="container">
+
+      <br>
+
+                <div id="info">
+                    <input id="query" type="text" autofocus="true" title="Progressive web app that Searches for text and media document for knowledge management industry sectors-related. Click on the cards to read more about specific topics." placeholder="Search for..."/ style="font-size:24px;">
+                    <div id="queryExplanation"></div>
+                </div>
+                <!-- info -->
+
+                <!-- begin results container, content generated dynamically -->
+                <div id="results"></div>
+                <!-- end results container, content generated dynamically -->
+
+      <br>
+
+      <br>
+
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+
+
+<!-- Team -->
+<section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h1"></h5>
+        <div class="row">
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="css/img/nirda-homepage.jpg" alt="card image"></p>
+                                    <h4 class="card-title">ABOUT NIRDA </h4>
+                                    <p class="card-text"> The National Industrial Research and Development Agency (NIRDA), is a government institution that has been mandated with a mission to enable a generation of industrial innovators to become competitive through technology monitoring, acquisition, development and transfer & applied research.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">THE 2018 OPEN CALLS: BANANA WINE AND GARMENTS SECTION </h4>
+                                    <p class="card-text"> The main objective of the NIRDA Open calls is to introduce firm-level innovations, which improve the ability and capacity of Rwandan enterprises to compete in strategic national and international markets, leading to increased profits, exports and the creation of decent and productive employment. NIRDA is hereby issuing an open calls campaign to all industries in Rwanda, engaged in the Banana Wine and Garments value chains, to apply for support geared towards increasing their competitiveness and increase in domestic production and exports.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/rwandaindustry?lang=en">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="http://nirda.gov.rw">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="http://nirda.gov.rw/wp-content/uploads/2018/07/Webp.net-compress-image.jpg" alt="card image"></p>
+                                    <h4 class="card-title">BANANA WINE INDUSTRY</h4>
+                                    <code>Who Can Apply </code>
+                                    <p class="card-text"> Applicants for NIRDA support must be established industries or enterprises within the Banana Wine Value Chain. Applications from new, emerging or start-ups are not acceptable at this stage.
+                                    </p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title"><i>Application Criteria</i></h4>
+                                    <p class="card-text">
+                                      <ul>In order to be eligible for support, applicants must:
+                                        <li>Be a private sector enterprise or cooperative registered in Rwanda</li>
+                                        <li>Be directly responsible for the preparation and management of the project with their partners (i.e., not acting as an intermediary);</li>
+                                        <li>Have stable and sufficient financial resources to ensure the continuity of their organisation throughout the project and, if necessary, to play a part in financing it</li>
+                                        <li>Be able to demonstrate their experience and capacity to manage activities corresponding in scale and complexity with those defined in the project.</li>
+                                      </ul>
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="http://nirda.gov.rw/wp-content/uploads/2018/07/44818170_m-e1530549797930.jpg" alt="card image"></p>
+                                    <h4 class="card-title">GARMENT INDUSTRY</h4>
+                                    <code>Who Can Apply </code>
+                                    <p class="card-text"> Applicants for NIRDA support must be established industries or enterprises within the Garment Industry Value Chain. Applications from new, emerging or start-ups are not acceptable at this stage.
+                                    </p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title"><i>Application Criteria</i></h4>
+                                    <p class="card-text">
+                                      <ul>In order to be eligible for support, applicants must:
+                                        <li>Be a private sector enterprise or cooperative registered in Rwanda</li>
+                                        <li>Be directly responsible for the preparation and management of the project with their partners (i.e., not acting as an intermediary);</li>
+                                        <li>Have stable and sufficient financial resources to ensure the continuity of their organisation throughout the project and, if necessary, to play a part in financing it</li>
+                                        <li>Be able to demonstrate their experience and capacity to manage activities corresponding in scale and complexity with those defined in the project.</li>
+                                      </ul>
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><i class="fa fa-question-circle fa-5x" aria-hidden="true" style="color: #007B5E"></i></p>
+                                    <h4 class="card-title">Did you know...?</h4>
+                                    <code>About the garment industry </code>
+                                    <p class="card-text">
+                                      <ol>
+
+<li> The industry directly employs approximately 25,000 Rwandans and indirectly employs a further 50,000 people</li>
+
+<li> The approximate requirement of clothing production for the Rwandan population is around 50,000,000 garments yearly. At this rate daily production should be 151,000 units per day. To produce this number, 10,000 industrial sewing machines are required and at the moment there are only 4,000 industrial sewing machines in Rwanda</li>
+
+<li> There is a great opportunity for NIRDA to directly impact and improve this industry</li>
+
+<li> Currently the Made in Rwanda programme is creating between 20,000 and 21,000 of jobs per year</li>
+
+<li> The industry sector has employed over 1,500 employees and intends to employ over 4,000 people</li>
+</ol>
+</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                <h4 class="card-title">Did you know...?</h4>
+                                <code>About the banana wine industry </code>
+                                    <p class="card-text">
+                                      <ol>
+                                        <li>In 2015 the agriculture sector contributed 31% of Rwanda’s GDP (www.statistics.gov.rw)</li>
+<li>Bananas are the second most important crop in Rwanda, second only to beans (NISR SAS 2016)</li>
+<li>The predominant value added product made from bananas in Rwanda is the production of alcoholic beverages commonly known as Urwagwa (NIRDA Report 2016). Other products include banana wine, juice, spirit, chips and flour.</li>
+<li>The vast majority of beverages produced from bananas (banana wine, banana beer and related fruit alcoholic beverages) are produced by 45.2% of all SMEs in Rwanda. Over 29 banana varieties are grown for banana brewing (Ministry of Trade and Industry Horticulture Development and Promotion Strategy 2014-2019).</li>
+<li>The vast majority of enterprises (70%) still use manual processes with only 1% using automated processes for banana beer and wine production</li>
+</ol>
+</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="css/img/steemlab-weneed_icon.png" alt="card image"></p>
+                                    <h4 class="card-title">Technology Acquisition, Commercialisation and Transfer</h4>
+                                    <p class="card-text"> Informing on this matter so that info sharing on open calls to enterprises, enterprise associations and sector specific chambers is knowledgeable and relevant.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Aim high</h4>
+                                    <p class="card-text">NIRDA aims to become  a fully-fledged knowledge-based organisation. It will develop detailed knowledge on priority sectors, sub-sectors and value chains, which are relevant to Rwanda’s economic performance nationally, regionally and globally.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="css/img/industry4_0_rd.png" alt="card image"></p>
+                                    <h4 class="card-title">Applied R&D</h4>
+                                    <p class="card-text">introducing and embedding Industry 4.0 within the Rwandan industrial context.Through technological incubation and drive to adaptation, NIRDA aims to create a generation of industry innovators.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">J-Lab & J-STEM</h4>
+                                    <p class="card-text">Joint STEM Product Development Facility, STEM Lab box and a Life Sciences Facility will serve as a centralized hub for quality life sciences research and an industrial technology incubation hub for industrial innovators. </p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+
+        </div>
+    </div>
+</section>
+<!-- Team -->
+
+    <hr>
+
+    <div style="text-align:center;">
+        <div class="col s8 offset-s2">
+            <a href="" class="btn btn-lg btn-outline center-block" title="info" style="background-color:transparent; color:#26a69a"><i class="fa fa-info fa-5x" aria-hidden="true"></i></a>
+
+            <a href="http://nirda.gov.rw" class="btn btn-lg btn-outline center-block" title="Home" style="background-color:transparent; color:#26a69a"><i class="fa fa-home fa-5x" aria-hidden="true"></i></a>
+
+            <a href="" class="btn btn-lg btn-outline center-block" title="Home" style="background-color:transparent; color:#26a69a"><i class="fa fa-comments-o fa-5x" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+
+        <ul class="text-center">
+
+            <p><a href="#">Knowledge Management Platform</a> &copy; 2018 - made by <a href="desireyavro.com">desireyavro</a> with <i class="fa fa-coffee" style="color:brown"></i> & <i class="fa fa-heart" style="color:pink"></i>
+        </ul>
+
+    </footer>
+
+    <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
