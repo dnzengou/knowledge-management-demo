@@ -16,9 +16,11 @@ input.onblur = function() {
   input.classList.add("out");
 }
 
-// Algolia login stuff
-var client = algoliasearch("KC17SSROI6", "6fabfd6313a9783bf11ce9005ceadfc3");
-var index = client.initIndex('getstarted_actors');
+// Algolia login
+//var client = algoliasearch("KC17SSROI6", "6fabfd6313a9783bf11ce9005ceadfc3");
+//var index = client.initIndex('getstarted_actors');
+var client = algoliasearch("N637HXAMBS", "e0f889ef9198d699ed7577646820ea12");
+var index = client.initIndex('rw_trade2013');
 
 // Search
 es['input'].onkeyup = function() {
