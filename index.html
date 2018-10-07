@@ -13,9 +13,9 @@
     <meta name="robots" content="all">
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="css/img/favicons/favicon-16x16.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="css/img/favicons/favicon-32x32.png" />
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- bootstrap & font awesome components -->
@@ -206,14 +206,14 @@ li:hover {
 
 <body>
 
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color:transparent;">
+  <nav class="navbar navbar-toggleable-md sticky-top navbar-light bg-faded" style="background-color:transparent;">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="#">
     <!-- Logo -->
                                                 <div id="logo" class="">
-                            <img src="css/img/favicons/NIRDA-logo-blu-32x32.png" sizes="32x32" /></a>
+                            <span href="#"><img src="css/img/favicons/NIRDA-logo-blu-50x50.png" sizes="50x50" /></span>
                         </div>
                         <!-- #logo END -->
     </a>
@@ -224,7 +224,12 @@ li:hover {
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Main</a>
+        <a class="nav-link" href="#local">local</a>
+        <!--<a class="nav-link disabled" href="#">Main</a>-->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#international">international</a>
+        <!--<a class="nav-link disabled" href="#">Main</a>-->
       </li>
     </ul>
   </div>
@@ -241,8 +246,6 @@ li:hover {
       <br>
 
                 <div id="info">
-                    <!--<input id="query" type="text" autofocus="true" title="Progressive web app that Searches for text and media document for knowledge management industry sectors-related. Click on the cards to read more about specific topics." placeholder="Search for..."/ style="font-size:24px;">
-                    <div id="queryExplanation"></div>-->
                     <input type="text" autofocus="true" title="Web app that searches for text and media document for knowledge management industry sectors-related. Eg. Local trade products." placeholder="Search for..."/ style="font-size:24px;" id="input" />
                     <div id="output"></div>
 
@@ -279,7 +282,7 @@ li:hover {
                                     <p><img class=" img-fluid" src="css/img/nirda-homepage.jpg" alt="card image"></p>
                                     <h4 class="card-title">Technology monitoring and knowledge sharing </h4>
                                     <p class="card-text">  NIRDA will become a knowledge-based organization. It will develop detailed knowledge on priority sectors, sub-sectors and value chains, which are relevant to Rwanda’s economic performance nationally, regionally and globally. It will obtain this knowledge through a mixture of internal research and monitoring of global technology trends, and by commissioning specific research from external organizations.</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="#" class="btn btn-primary btn-sm" title='more'><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -329,32 +332,30 @@ li:hover {
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
-                        <div class="frontside">
+                        <div class="frontside" id='local'>
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="css/img/Knowledge_transfer_blue.svg.png" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="css/img/local.png" alt="card image"></p>
                                     <h4 class="card-title">Local</h4>
                                     <p class="card-text">
                                       <ul>
                                         <li>•	Industrial intellectual property databases (link straight to the RDB IP site or World Intellectual Property organization)</li>
                                         <li>•	Product Development – Research and publications, prototyping, who is developing what and where (examples here include; medical devices, solar panels, sensors etc.</li>
                                         <li>•	Technology – prompt here- which industrial field – give options of STEM, Life Sciences, Agricultural Value Chains (Banana Wine), Garments, Cow in the car</li>
-                                        <li>•	NIRDA Technology Audits (Leather, Garments, banana wine, Phytomedicines, ceramics</li>
-                                        <li>•	Updated laws, regulations and policies on- includes standards, made in Rwanda, industrial policy, domestic market recapturing strategy, export strategy etc.</li>
                                         <ul>
                                     </p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="#" class="btn btn-primary btn-sm" title='more'><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title"><i>International</i></h4>
+                                    <h4 class="card-title"><i>Local</i></h4>
+                                    <code>(suite) </code>
                                     <p class="card-text">
-                                      <li>•	Industrial intellectual property databases (link straight to the RDB IP site or World Intellectual Property organization)</li>
-                                      <li>•	Product Development – Research and publications, prototyping, who is developing what and where (examples here include; medical devices, solar panels, sensors etc.</li>
-                                      <li>•	Technology – prompt here- which industrial field – give options of STEM, Life Sciences, Agricultural Value Chains (Banana Wine), Garments</li>
+                                    <li>•	NIRDA Technology Audits (Leather, Garments, banana wine, Phytomedicines, ceramics</li>
+                                    <li>•	Updated laws, regulations and policies on- includes standards, made in Rwanda, industrial policy, domestic market recapturing strategy, export strategy etc.</li>
                                       </ul>
                                     </p>
                                     <ul class="list-inline">
@@ -390,26 +391,25 @@ li:hover {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card">
+                            <div class="card" id='international'>
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="http://nirda.gov.rw/wp-content/uploads/2018/07/44818170_m-e1530549797930.jpg" alt="card image"></p>
-                                    <h4 class="card-title">GARMENT INDUSTRY</h4>
-                                    <code>Who Can Apply </code>
-                                    <p class="card-text"> Applicants for NIRDA support must be established industries or enterprises within the Garment Industry Value Chain. Applications from new, emerging or start-ups are not acceptable at this stage.
+                                    <p><img class=" img-fluid" src="css/img/international.png" alt="card image"></p>
+                                    <h4 class="card-title">International</h4>
+                                    <p class="card-text">
+                                      <li>Industrial intellectual property databases (link straight to the RDB IP site or World Intellectual Property organization)</li>
+                                      <li>Product Development – Research and publications, prototyping, who is developing what and where (examples here include; medical devices, solar panels, sensors etc.</li>
                                     </p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="#" class="btn btn-primary btn-sm" title='more'><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="backside">
                             <div class="card">
-                                <p><img class=" img-fluid" src="http://nirda.gov.rw/wp-content/uploads/2018/07/Webp.net-compress-image.jpg" alt="card image"></p>
                                 <div class="card-body text-center mt-4">
-                                <h4 class="card-title">BANANE WINE INDUSTRY INDUSTRY</h4>
-                                <code>Who Can Apply </code>
-                                    <p class="card-text">Applicants for NIRDA support must be established industries or
-enterprises within the Banana Wine Value Chain. Applications from new,
-emerging or start-ups are not acceptable at this stage.
+                                <h4 class="card-title">International</h4>
+                                <code>(suite) </code>
+                                    <p class="card-text">
+                                    <li>Technology – prompt here- which industrial field – give options of STEM, Life Sciences, Agricultural Value Chains (Banana Wine), Garments</li>
                                     </p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
@@ -464,7 +464,7 @@ emerging or start-ups are not acceptable at this stage.
 <li> The industry sector has employed over 1,500 employees and intends to employ over 4,000 people</li>
 </ol>
 </p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="#" class="btn btn-primary btn-sm" title='more'><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -521,7 +521,7 @@ emerging or start-ups are not acceptable at this stage.
                                     <p><img class=" img-fluid" src="css/img/steemlab-weneed_icon.png" alt="card image"></p>
                                     <h4 class="card-title">Technology Acquisition, Commercialisation and Transfer</h4>
                                     <p class="card-text"> Informing on this matter so that info sharing on open calls to enterprises, enterprise associations and sector specific chambers is knowledgeable and relevant.</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="#" class="btn btn-primary btn-sm" title='more'><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -569,7 +569,7 @@ emerging or start-ups are not acceptable at this stage.
                                     <p><img class=" img-fluid" src="css/img/industry4_0_rd.png" alt="card image"></p>
                                     <h4 class="card-title">Applied R&D</h4>
                                     <p class="card-text">introducing and embedding Industry 4.0 within the Rwandan industrial context.Through technological incubation and drive to adaptation, NIRDA aims to create a generation of industry innovators.</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="#" class="btn btn-primary btn-sm" title='more'><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -617,11 +617,11 @@ emerging or start-ups are not acceptable at this stage.
 
     <div style="text-align:center;">
         <div class="col s8 offset-s2">
-            <a href="" class="btn btn-lg btn-outline center-block" title="info" style="background-color:transparent; color:#26a69a"><i class="fa fa-info fa-5x" aria-hidden="true"></i></a>
+            <a href="" class="btn btn-lg btn-outline center-block" title="up" style="background-color:transparent; color:#26a69a"><i class="fa fa-chevron-up fa-5x" aria-hidden="true"></i></a>
 
-            <a href="http://nirda.gov.rw" class="btn btn-lg btn-outline center-block" title="Home" style="background-color:transparent; color:#26a69a"><i class="fa fa-home fa-5x" aria-hidden="true"></i></a>
+            <a href="http://nirda.gov.rw" class="btn btn-lg btn-outline center-block" title="Home website" style="background-color:transparent; color:#26a69a"><i class="fa fa-home fa-5x" aria-hidden="true"></i></a>
 
-            <a href="" class="btn btn-lg btn-outline center-block" title="Home" style="background-color:transparent; color:#26a69a"><i class="fa fa-comments-o fa-5x" aria-hidden="true"></i></a>
+            <a href="https://www.twitter.com/RwandaIndustry" class="btn btn-lg btn-outline center-block" title="twitter @NIRDA" style="background-color:transparent; color:#26a69a"><i class="fa fa-twitter fa-5x" aria-hidden="true"></i></a>
         </div>
     </div>
 
